@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" width="1200" height="200">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="60%" style="stop-color:#2d1f05"/>
+      <stop offset="100%" style="stop-color:#1a1a1a"/>
+    </linearGradient>
+    <linearGradient id="gold2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e6c46e"/>
+      <stop offset="100%" style="stop-color:#c79a3a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="200" fill="url(#bg2)"/>
+  <rect x="0" y="0" width="1200" height="3" fill="url(#gold2)"/>
+  <rect x="0" y="197" width="1200" height="3" fill="url(#gold2)"/>
+  <!-- Kirjan nimi -->
+  <text x="200" y="75" font-family="Georgia,serif" font-size="14" fill="#c79a3a" letter-spacing="4">MASSIKEIMO</text>
+  <text x="200" y="125" font-family="Georgia,serif" font-size="38" fill="#fff" font-weight="bold">Vaurastumisen harha</text>
+  <text x="200" y="158" font-family="Arial,sans-serif" font-size="14" fill="#888">Miksi suomalaiset luulevat vaurastuvansa — ja miksi eivät.</text>
+  <!-- CTA -->
+  <rect x="850" y="70" width="270" height="60" rx="8" fill="#c79a3a"/>
+  <text x="985" y="104" font-family="Arial,sans-serif" font-size="16" fill="#111" text-anchor="middle" font-weight="bold">Tilaa kirja →</text>
+</svg>
