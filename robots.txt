@@ -4,4 +4,4 @@ Disallow: /kuvat/
 Disallow: /css/
 Disallow: /js/
 
-Sitemap: https://suorapuhe.fi/sitemap.xml
+Sitemap: https://suorapuhe.github.io/suorapuhe/sitemap.xml
