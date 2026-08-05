@@ -1,5 +1,4 @@
 # Suorapuhe.fi – Suomalainen blogi, joka sanoo asiat suoraan
-
 > Kaunistelematonta faktaa yhteiskunnasta, terveydestä, rahasta, kryptovaluutoista ja mielenterveydestä. Herätys todellisuuteen – ota elämäsi haltuun.
 
 🌐 **Sivusto:** [https://suorapuhe.github.io/suorapuhe/](https://suorapuhe.github.io/suorapuhe/)
@@ -16,7 +15,7 @@ Blogi kattaa kuusi pääkategoriaa: yhteiskunta, terveys ja liikunta, lisätulot
 ---
 
 ## 📖 Vaurastumisen harha – kirja
-
+<img src="kuvat/VaurastumisenHarha-kansi-kuva.png" alt="Vaurastumisen Harha - Tätä sinulle ei kerrota koulussa" width="100%" />
 **Vaurastumisen harha** (ISBN 9789528903147) on kirja, joka purkaa myytin siitä, että palkkatyö ja säästäminen tekevät sinusta varakkaan. Kirja käsittelee mielenhallintaa, terveyttä, taloutta, sijoittamista, kryptovaluuttoja ja käytännön keinoja lisätulojen rakentamiseen.
 
 - **Lue ilmaiseksi PDF:nä:** [VaurastumisenHarha.pdf](https://suorapuhe.github.io/suorapuhe/VaurastumisenHarha.pdf)
