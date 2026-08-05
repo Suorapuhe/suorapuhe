@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /kuvat/
+Disallow: /css/
+Disallow: /js/
+
+Sitemap: https://suorapuhe.fi/sitemap.xml
