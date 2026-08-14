@@ -2,7 +2,7 @@
 > Kaunistelematonta faktaa yhteiskunnasta, terveydestä, rahasta, kryptovaluutoista ja mielenterveydestä. Herätys todellisuuteen – ota elämäsi haltuun.
 
 🌐 **Sivusto:** [https://suorapuhe.github.io/suorapuhe/](https://suorapuhe.github.io/suorapuhe/)
-📖 **Kirja:** [Vaurastumisen harha (PDF)](https://suorapuhe.github.io/suorapuhe/VaurastumisenHarha.pdf) · [Tilaa painettuna 24,90 € (BoD)](https://kirjakauppa.bod.fi/vaurastumisen-harha-massikeimo-9789528903147)
+📖 **Kirja:** [Tilaa painettuna 24,90 € (BoD)](https://kirjakauppa.bod.fi/vaurastumisen-harha-massikeimo-9789528903147)
 
 ---
 
