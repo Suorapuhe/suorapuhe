@@ -18,9 +18,8 @@ Blogi kattaa kuusi pääkategoriaa: yhteiskunta, terveys ja liikunta, lisätulot
 <img src="kuvat/VaurastumisenHarha-kansi-kuva.png" alt="Vaurastumisen Harha - Tätä sinulle ei kerrota koulussa" width="100%" />
 **Vaurastumisen harha** (ISBN 9789528903147) on kirja, joka purkaa myytin siitä, että palkkatyö ja säästäminen tekevät sinusta varakkaan. Kirja käsittelee mielenhallintaa, terveyttä, taloutta, sijoittamista, kryptovaluuttoja ja käytännön keinoja lisätulojen rakentamiseen.
 
-- **Lue ilmaiseksi PDF:nä:** [VaurastumisenHarha.pdf](https://suorapuhe.github.io/suorapuhe/VaurastumisenHarha.pdf)
 - **Tilaa painettu kirja:** [kirjakauppa.bod.fi – 24,90 €](https://kirjakauppa.bod.fi/vaurastumisen-harha-massikeimo-9789528903147)
-- **Kirjailija:** Massi Keimo
+- **Kirjailija:** Massikeimo
 
 ---
 
@@ -77,7 +76,6 @@ Suomalainen itsensäkehittäminen · taloudellinen vapaus · vaurastuminen · si
 ## Yhteystiedot ja linkit
 
 - 🌐 Sivusto: [suorapuhe.fi](https://suorapuhe.fi/)
-- 📖 Kirja PDF: [Vaurastumisen harha](https://suorapuhe.github.io/suorapuhe/VaurastumisenHarha.pdf)
 - 🛒 Osta kirja: [BoD-kirjakauppa](https://kirjakauppa.bod.fi/vaurastumisen-harha-massikeimo-9789528903147)
 - 🔍 Haku: [suorapuhe.github.io/suorapuhe/haku.html](https://suorapuhe.github.io/suorapuhe/haku.html)
 
