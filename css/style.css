@@ -357,3 +357,109 @@ img{max-width:100%;height:auto;display:block}
   margin: 0;
   font-style: italic;
 }
+
+/* ============================================================
+   Lukupolun seuranta (readpath.js)
+   ============================================================ */
+/* ✅-merkki "Lue tässä järjestyksessä" -listoissa */
+.read-order-section .rp-check{
+  margin-right:.35em;
+  font-size:.95em;
+  line-height:1;
+}
+.read-order-section li.rp-done > a{
+  color:#2e7d32;
+}
+.read-order-section li.rp-done{
+  opacity:.92;
+}
+/* Edistymislaskuri otsikossa */
+.read-order-section .rp-progress{
+  font-size:.6em;
+  font-weight:600;
+  color:#2e7d32;
+  margin-left:.5em;
+  white-space:nowrap;
+}
+
+/* "Jatka lukupolkua" -laatikko artikkelin lopussa */
+.rp-continue{
+  margin:2.5rem 0 1.5rem;
+  padding:1.1rem 1.25rem;
+  border:1px solid #e7dcc2;
+  border-left:4px solid #c79a3a;
+  border-radius:10px;
+  background:linear-gradient(180deg,#fffdf7 0%,#fdf8ec 100%);
+}
+.rp-continue-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:.6rem;
+}
+.rp-continue-title{
+  font-weight:700;
+  font-size:1.02rem;
+  color:#3a3218;
+}
+.rp-continue-count{
+  font-size:.82rem;
+  font-weight:600;
+  color:#8a7a4a;
+  white-space:nowrap;
+}
+.rp-bar{
+  height:7px;
+  border-radius:5px;
+  background:#ece3cd;
+  overflow:hidden;
+  margin-bottom:.75rem;
+}
+.rp-bar > span{
+  display:block;
+  height:100%;
+  background:linear-gradient(90deg,#c79a3a,#e0be6a);
+  transition:width .4s ease;
+}
+.rp-next{
+  font-size:.95rem;
+  line-height:1.5;
+  color:#2b2b2b;
+}
+.rp-next-label{
+  font-weight:600;
+  color:#5a5030;
+}
+.rp-next a{
+  font-weight:700;
+  color:#8a5a00;
+  text-decoration:none;
+  border-bottom:1px solid rgba(138,90,0,.35);
+}
+.rp-next a:hover{ border-bottom-color:#8a5a00; }
+.rp-next-step{
+  display:inline-block;
+  font-size:.75rem;
+  color:#8a7a4a;
+  margin-left:.35rem;
+  white-space:nowrap;
+}
+.rp-done-all{
+  font-weight:600;
+  color:#2e7d32;
+}
+.rp-continue-foot{
+  margin-top:.7rem;
+  font-size:.82rem;
+}
+.rp-continue-foot a{
+  color:#8a7a4a;
+  text-decoration:none;
+}
+.rp-continue-foot a:hover{ text-decoration:underline; }
+
+@media (max-width:520px){
+  .rp-continue-head{ flex-direction:column; align-items:flex-start; gap:.25rem; }
+  .rp-next-step{ display:block; margin-left:0; margin-top:.15rem; }
+}
