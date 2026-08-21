@@ -81,6 +81,55 @@
                 text-decoration: underline;
             }
         </style>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Suorapuhe",
+          "url": "https://suorapuhe.github.io/suorapuhe/",
+          "description": "Suomalainen blogi, joka sanoo asiat suoraan. Kaunistelematonta faktaa yhteiskunnasta, terveydestä, rahasta, kryptovaluutoista ja mielenterveydestä.",
+          "inLanguage": "fi",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://suorapuhe.github.io/suorapuhe/haku.html?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Book",
+          "name": "Vaurastumisen harha",
+          "alternativeHeadline": "Tätä sinulle ei kerrota koulussa",
+          "isbn": "9789528903147",
+          "inLanguage": "fi",
+          "url": "https://kirjakauppa.bod.fi/vaurastumisen-harha-massikeimo-9789528903147",
+          "image": "https://suorapuhe.github.io/suorapuhe/kuvat/VaurastumisenHarha-kansi-kuva.png",
+          "description": "Kirja, joka purkaa myytin siitä, että palkkatyö ja säästäminen tekevät sinusta varakkaan. Käsittelee mielenhallintaa, terveyttä, taloutta, sijoittamista, kryptovaluuttoja ja käytännön keinoja lisätulojen rakentamiseen.",
+          "author": {
+            "@type": "Person",
+            "name": "Massikeimo",
+            "url": "https://kirjakauppa.bod.fi/vaurastumisen-harha-massikeimo-9789528903147",
+            "sameAs": "https://kirjakauppa.bod.fi/vaurastumisen-harha-massikeimo-9789528903147"
+          },
+          "bookFormat": "https://schema.org/Paperback",
+          "offers": {
+            "@type": "Offer",
+            "price": "24.90",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://kirjakauppa.bod.fi/vaurastumisen-harha-massikeimo-9789528903147",
+            "seller": {
+              "@type": "Organization",
+              "name": "Books on Demand (BoD)"
+            }
+          }
+        }
+        </script>
     </head>
     <body>
         <nav class="site-nav">
@@ -843,6 +892,14 @@
                             ><a
                                 href="kryptovaluutta/cex-porssit-taydellisesti-kycsta-pankkitiliin-lompakoihin-ja-kryptoveroihin.html"
                                 >Krypto aloittelijalle</a
+                            ><a href="lisatulot/52-osinkoaristokraattia-salkku-joka-maksaa-joka-viikko.html"
+                                >Osinkoaristokraatit</a
+                            ><a href="mediakritiikki/anonyymi-linux-taydellinen-opas-yksityisyyteen-ja-anonymiteettiin-verkossa.html"
+                                >Anonyymi Linux</a
+                            ><a href="yhteiskunta/pankkien-suuri-kusetus-miksi-saastotilisi-syo-rahasi.html"
+                                >Pankkien kusetus</a
+                            ><a href="terveys-ja-liikunta/sokeririippuvuus-miten-sokeri-tuhoaa-terveytesi-hitaasti-ja-mita-sille-pitaa-tehda.html"
+                                >Sokeririippuvuus</a
                             >
                         </div>
                         <div class="footer-col">
@@ -853,9 +910,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-bottom"><span>© 2026 Suorapuhe</span></div>
+                <div class="footer-bottom"><span>© <span class="cpyr-year"></span> Suorapuhe – Kaikki oikeudet pidätetään. Sisällön kopiointi, jäljentäminen tai uudelleenjulkaisu ilman kirjallista lupaa on ehdottomasti kielletty.</span></div>
             </div>
         </footer>
         <script src="js/main.js" defer></script>
-    </body>
+      <script>document.querySelectorAll(".cpyr-year").forEach(function(e){e.textContent=new Date().getFullYear();});</script>
+</body>
 </html>

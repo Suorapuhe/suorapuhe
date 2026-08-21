@@ -69,7 +69,7 @@ Miten maailma pyörii, mitä koulu ei opeta, miksi palkkatyö ei riitä, pankkie
 
 ## Aiheet ja avainsanat
 
-Suomalainen itsensäkehittäminen · taloudellinen vapaus · vaurastuminen · sijoittaminen aloittelijalle · kryptovaluutta suomeksi · Bitcoin · Solana · DeFi · lisätulot · sivutulot · flippaaminen · hustlaus · henkilöbrändi · affiliate-markkinointi · terveys · ravinto · proteiini · D-vitamiini · kortisoli · uni · treeniohjelma · kotitreeni · mielenterveys · ahdistus · masennus · dopamiinipaasto · someriippuvuus · mediakritiikki · yksityisyys verkossa · digitaalinen ID · yhteiskuntakritiikki · Vaurastumisen harha · Massi Keimo
+Suomalainen itsensäkehittäminen · taloudellinen vapaus · vaurastuminen · sijoittaminen aloittelijalle · kryptovaluutta suomeksi · Bitcoin · Solana · DeFi · lisätulot · sivutulot · flippaaminen · hustlaus · henkilöbrändi · affiliate-markkinointi · terveys · ravinto · proteiini · D-vitamiini · kortisoli · uni · treeniohjelma · kotitreeni · mielenterveys · ahdistus · masennus · dopamiinipaasto · someriippuvuus · mediakritiikki · yksityisyys verkossa · digitaalinen ID · yhteiskuntakritiikki · Vaurastumisen harha · Massikeimo
 
 ---
 
