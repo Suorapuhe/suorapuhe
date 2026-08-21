@@ -1,4 +1,4 @@
-# Suorapuhe.fi – Suomalainen blogi, joka sanoo asiat suoraan
+# Suorapuhe – Suomalainen blogi, joka sanoo asiat suoraan
 > Kaunistelematonta faktaa yhteiskunnasta, terveydestä, rahasta, kryptovaluutoista ja mielenterveydestä. Herätys todellisuuteen – ota elämäsi haltuun.
 
 🌐 **Sivusto:** [https://suorapuhe.github.io/suorapuhe/](https://suorapuhe.github.io/suorapuhe/)
@@ -6,9 +6,9 @@
 
 ---
 
-## Mikä on Suorapuhe.fi?
+## Mikä on Suorapuhe?
 
-**Suorapuhe.fi** on suomalainen blogi, joka tarjoaa selkeitä, tutkimukseen perustuvia näkemyksiä **terveydestä, taloudesta, kryptovaluutoista, mielenterveydestä ja itsensäkehittämisestä** – ilman kaunistelua. Sisältö on suunnattu suomalaiselle lukijalle, joka haluaa ottaa vastuun omasta elämästään, taloudestaan ja terveydestään.
+**Suorapuhe** on suomalainen blogi, joka tarjoaa selkeitä, tutkimukseen perustuvia näkemyksiä **terveydestä, taloudesta, kryptovaluutoista, mielenterveydestä ja itsensäkehittämisestä** – ilman kaunistelua. Sisältö on suunnattu suomalaiselle lukijalle, joka haluaa ottaa vastuun omasta elämästään, taloudestaan ja terveydestään.
 
 Blogi kattaa kuusi pääkategoriaa: yhteiskunta, terveys ja liikunta, lisätulot, mediakritiikki, mielenterveys ja kryptovaluutta.
 
@@ -75,7 +75,7 @@ Suomalainen itsensäkehittäminen · taloudellinen vapaus · vaurastuminen · si
 
 ## Yhteystiedot ja linkit
 
-- 🌐 Sivusto: [suorapuhe.fi](https://suorapuhe.fi/)
+- 🌐 Sivusto: [suorapuhe](https://suorapuhe.github.io/suorapuhe/)
 - 🛒 Osta kirja: [BoD-kirjakauppa](https://kirjakauppa.bod.fi/vaurastumisen-harha-massikeimo-9789528903147)
 - 🔍 Haku: [suorapuhe.github.io/suorapuhe/haku.html](https://suorapuhe.github.io/suorapuhe/haku.html)
 
@@ -84,4 +84,4 @@ Suomalainen itsensäkehittäminen · taloudellinen vapaus · vaurastuminen · si
 
 ---
 
-© 2026 Suorapuhe.fi – Suomalainen blogi, joka sanoo asiat suoraan.
+© 2026 Suorapuhe – Suomalainen blogi, joka sanoo asiat suoraan.
