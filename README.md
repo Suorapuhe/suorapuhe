@@ -23,24 +23,15 @@ Blogi kattaa kuusi pääkategoriaa: yhteiskunta, terveys ja liikunta, lisätulot
 
 ---
 
-## Lue tässä järjestyksessä
+## 🔥 12 viikon elämänmuutoshaaste (ilmainen)
 
-Sisältö on rakennettu kolmivaiheiseksi poluksi mielen, kehon ja talouden hallintaan.
+Sivuston sisältö on koottu ilmaiseksi 12 viikon haasteeksi: mieli, keho ja raha kuntoon rinnakkain, 15–30 minuuttia päivässä. Lyhyt alkukartoitus asettaa tehtävät omalle tasolle, ja viikolla 5 valitaan lisätulorata – flippaus, hustlaus tai talouden perusteet. Edistyminen tallentuu vain käyttäjän omaan selaimeen.
 
-### 🧠 Vaihe 1 – Mieli & Asenne
-Someriippuvuus, dopamiinipaasto, itsensä sabotoinnin lopettaminen, uhrimentaliteetti, jumin murtaminen, ahdistus ja masennus, vertailun ansa, täydellisyyden tavoittelu, Alter Ego -metodi ja epäonnistumisen hyväksyminen.
+- **Vaihe 1 – Herätys (vk 1–4):** ruutuaika, liike, uni, ruoka, menot, puskuri ja velat
+- **Vaihe 2 – Rakentaminen (vk 5–8):** jumi, proteiini, treeni, epämukavuusalue, lisätulorata ja välimittaus
+- **Vaihe 3 – Vauhti (vk 9–12):** alter ego, stressi, aika, ruokavalio, loppumittaus ja raha töihin
 
-[→ Mielenterveys-kategoria](https://suorapuhe.github.io/suorapuhe/mielenterveys/)
-
-### 💪 Vaihe 2 – Terveys & Suorituskyky
-Uni, aamurituaali, nesteytys, terveellinen ruokavalio, ultraprosessoitu ruoka, sokeririippuvuus, proteiini, D-vitamiini, magnesium, omega-3, kortisoli, krooninen tulehdus, alkoholi, liikunta, kotitreeni ja painoharjoittelu, venyttely ja sauna.
-
-[→ Terveys ja liikunta -kategoria](https://suorapuhe.github.io/suorapuhe/terveys-ja-liikunta/)
-
-### 💰 Vaihe 3 – Talous, Bisnes & Krypto
-Miten maailma pyörii, mitä koulu ei opeta, miksi palkkatyö ei riitä, pankkien säästötilin ansa, hätärahasto, sijoittaminen aloittelijalle, flippaaminen, hustlaus, henkilöbrändi, affiliate-markkinointi sekä kattava kryptovaluutta-osio (CEX- ja DEX-pörssit, kryptolompakot, DeFi, meme-tokenit, airdrop-farmaus).
-
-[→ Lisätulot](https://suorapuhe.github.io/suorapuhe/lisatulot/) · [→ Kryptovaluutta](https://suorapuhe.github.io/suorapuhe/kryptovaluutta/) · [→ Yhteiskunta](https://suorapuhe.github.io/suorapuhe/yhteiskunta/)
+[→ Aloita haaste](https://suorapuhe.github.io/suorapuhe/haaste/)
 
 ---
 

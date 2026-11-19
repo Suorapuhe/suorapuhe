@@ -79,6 +79,23 @@
   var body = document.querySelector('.article-body');
   if (!body) return;
 
+  // Haaste-CTA artikkelin loppuun
+  (function(){
+    var cat = (location.pathname.match(/\/([a-z-]+)\/[^\/]+$/) || [])[1] || "";
+    var M = {
+      mielenterveys: "Tieto ei muuta mitään, jos et toimi. 12 viikon haasteessa somepaasto, jumin murtaminen ja huolen hallinta muuttuvat päivittäisiksi teoiksi.",
+      "terveys-ja-liikunta": "Tiedät nyt, mitä pitää tehdä. Haasteessa uni, liike ja ruoka rakennetaan tavaksi viikko kerrallaan – sinun tasoltasi.",
+      lisatulot: "Haasteen lisätuloradalla opettelet flippauksen tai hustlauksen käytännössä ja teet ensimmäiset omat lisätulosi 12 viikon aikana.",
+      kryptovaluutta: "Ennen kryptoja perusta kuntoon: puskuri, velat ja lisätulot. 12 viikon haaste laittaa ne järjestykseen.",
+      yhteiskunta: "Kun näet, miten järjestelmä toimii, seuraava askel on toimia toisin. 12 viikon haaste muuttaa sen teoiksi.",
+      mediakritiikki: "Lopeta reagoiminen ja ala rakentaa. 12 viikon haaste vie huomiosi takaisin omaan elämääsi."
+    };
+    var box = document.createElement("div");
+    box.className = "sp-hz-cta";
+    box.innerHTML = "<b>🔥 Lukeminen ei muuta mitään. Tekeminen muuttaa.</b><p>" + (M[cat] || M.mielenterveys) + " Ilmainen, 15–30 min päivässä.</p><a href=\"../haaste/\">Aloita 12 viikon haaste →</a>";
+    body.appendChild(box);
+  })();
+
   var WPM = 200;
   var words = (body.innerText || body.textContent || '').trim().split(/\s+/).length;
   var totalMin = Math.max(1, Math.round(words / WPM));
