@@ -788,3 +788,63 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
 .hz-promo .hz-info{color:#111}
 .hz-promo-cta{margin:0!important}
 @media(max-width:520px){.hz-promo{padding:1.6rem 1.1rem}.hz-promo h2{font-size:1.6rem}}
+
+/* ==========================================================================
+   VALIKKO + ISOT NÄYTÖT (korjaus 2026-11)
+   ========================================================================== */
+/* Valikko: ei vierityspalkkia, linkit oikeaan reunaan */
+.site-nav-inner{gap:1rem}
+.nav-links{overflow:visible;justify-content:flex-end;flex-wrap:nowrap;gap:.1rem;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{padding:.95rem .55rem}
+.nav-links a.nav-haaste{margin:0 .3rem 0 .6rem;padding:.42rem .9rem!important}
+.nav-search-link{margin-left:.2rem!important}
+
+/* Kun linkit eivät mahdu riville → hampurilaisvalikko */
+@media(max-width:1180px){
+  .menu-toggle{display:block}
+  .nav-links{display:none;flex-direction:column;align-items:stretch;position:absolute;top:100%;left:0;right:0;background:#111;z-index:999;padding:.5rem 0 1rem;gap:0;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:.8rem 1.5rem;font-size:.85rem;border-bottom:1px solid #222;width:100%}
+  .nav-links a.nav-haaste{margin:.8rem 1.5rem .2rem;width:auto;text-align:center;border-bottom:0;padding:.75rem 1rem!important}
+  .nav-search-link{margin-left:0!important}
+  .site-nav-inner{position:relative}
+  .sp-remaining{margin-left:auto;margin-right:.4rem}
+}
+/* Haaste-painike näkyy yläpalkissa myös silloin, kun valikko on kiinni */
+.sp-nav-haaste-mini{display:none}
+@media(max-width:1180px){
+  .sp-nav-haaste-mini{display:inline-flex;align-items:center;margin-left:auto;font-family:var(--ui);font-size:.74rem;font-weight:800;
+    color:#111;background:var(--gold);border-radius:999px;padding:.38rem .75rem;white-space:nowrap;text-decoration:none;order:2}
+  .sp-nav-haaste-mini:hover{background:#e0b85a;text-decoration:none}
+  .site-nav-inner .sp-remaining{order:2}
+  .sp-nav-haaste-mini + .sp-remaining,.sp-remaining{margin-left:.4rem}
+}
+@media(max-width:420px){.sp-nav-haaste-mini{font-size:.68rem;padding:.32rem .6rem}}
+
+/* Isot näytöt: koko sivu skaalautuu suuremmaksi */
+@media(min-width:1600px){
+  html{font-size:17px}
+  :root{--max-w:82rem}
+}
+@media(min-width:1920px){
+  html{font-size:18.5px}
+  :root{--max-w:82rem}
+  .page-layout{gap:4rem}
+}
+@media(min-width:2400px){
+  html{font-size:21px}
+  :root{--max-w:82rem}
+}
+@media(min-width:3200px){
+  html{font-size:26px}
+}
+/* Artikkelisivu: sisältö ja sivupalkki keskitetään yhdeksi kokonaisuudeksi */
+@media(min-width:901px){
+  .page-layout{grid-template-columns:minmax(0,45rem) 18.75rem;justify-content:center;max-width:none}
+  .content-main{max-width:45rem}
+}
+
+/* Korttiruudukko skaalautuu fonttikoon mukana */
+.cards-grid{grid-template-columns:repeat(auto-fill,minmax(18.5rem,1fr))}
+@media(max-width:520px){.cards-grid{grid-template-columns:1fr}}

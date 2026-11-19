@@ -176,3 +176,13 @@
   else setTimeout(start, 0);
   window.addEventListener('load', function(){ collectToc(); onScroll(); });
 })();
+
+/* Haaste-painike yläpalkkiin myös suljetulla mobiilivalikolla */
+(function(){
+  var big=document.querySelector(".nav-links .nav-haaste"), inner=document.querySelector(".site-nav-inner");
+  if(!big||!inner||big.classList.contains("active")) return;
+  var a=document.createElement("a");
+  a.className="sp-nav-haaste-mini"; a.href=big.getAttribute("href"); a.textContent="🔥 Haaste";
+  var t=document.getElementById("menu-toggle");
+  if(t) inner.insertBefore(a,t); else inner.appendChild(a);
+})();
