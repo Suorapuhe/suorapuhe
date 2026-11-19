@@ -14,7 +14,7 @@
         <link rel="canonical" href="https://suorapuhe.github.io/suorapuhe/" />
         <meta property="og:image" content="https://suorapuhe.github.io/suorapuhe/kuvat/og-default.svg" />
         <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/style.css?v=2" />
 		        <style>
             .read-order-section {
                 margin-top: 2.5rem;
@@ -155,6 +155,8 @@
                 <p class="hero-sub">
                     Kaunistelematonta asiaa terveydestä, rahasta ja mielestä – perusteltuna ja ilman kiertelyä.
                 </p>
+                <div class="hero-ctas"><a id="sp-hero-cta" class="btn-primary" href="#lukupolku">Aloita lukupolku →</a><a class="btn-ghost" href="#tuoreimmat">Selaa uusimpia</a></div>
+                <p id="sp-hero-progress" class="hero-progress"></p>
                 <div class="hero-cats">
                     <a href="yhteiskunta/" class="hero-cat">Yhteiskunta</a
                     ><a href="terveys-ja-liikunta/" class="hero-cat">Terveys ja liikunta</a
@@ -165,7 +167,7 @@
                 </div>
             </div>
             <div class="container">
-                <h2 class="home-section-title">Tuoreimmat artikkelit</h2>
+                <h2 class="home-section-title" id="tuoreimmat">Tuoreimmat artikkelit</h2>
                 <div class="cards-grid">
                     <article class="card">
                         <div class="card-img">
@@ -910,8 +912,8 @@
                 <div class="footer-bottom"><span>© <span class="cpyr-year"></span> Suorapuhe – Kaikki oikeudet pidätetään. Sisällön kopiointi, jäljentäminen tai uudelleenjulkaisu ilman kirjallista lupaa on ehdottomasti kielletty.</span></div>
             </div>
         </footer>
-        <script src="js/main.js" defer></script>
-<script src="js/readpath.js" defer></script>
+        <script src="js/main.js?v=2" defer></script>
+<script src="js/readpath.js?v=2" defer></script>
       <script>document.querySelectorAll(".cpyr-year").forEach(function(e){e.textContent=new Date().getFullYear();});</script>
 </body>
 </html>

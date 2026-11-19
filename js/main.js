@@ -65,3 +65,97 @@
   }, {passive: true});
 
 })();
+
+
+/* ==========================================================================
+   Suorapuhe v2 – lukukokemus
+   - "N min jäljellä" -merkki navigaatiossa
+   - sisällysluettelo seuraa lukijaa (luetut osiot merkitään)
+   - kun artikkeli on luettu loppuun, lähetetään 'sp:complete' (readpath.js
+     merkitsee artikkelin luetuksi ja näyttää "Luit loppuun" -kortin)
+   ========================================================================== */
+(function(){
+  'use strict';
+  var body = document.querySelector('.article-body');
+  if (!body) return;
+
+  var WPM = 200;
+  var words = (body.innerText || body.textContent || '').trim().split(/\s+/).length;
+  var totalMin = Math.max(1, Math.round(words / WPM));
+
+  // Jäljellä oleva aika -merkki navigaatioon
+  var nav = document.querySelector('.site-nav-inner');
+  var pill = document.createElement('span');
+  pill.className = 'sp-remaining';
+  pill.setAttribute('aria-live', 'polite');
+  if (nav) {
+    var toggle = document.getElementById('menu-toggle');
+    if (toggle) nav.insertBefore(pill, toggle); else nav.appendChild(pill);
+  }
+
+  // Sisällysluettelon tila
+  var tocLinks = [], heads = [];
+  function collectToc(){
+    tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc-list a'));
+    heads = tocLinks.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+    var w = document.getElementById('toc-widget');
+    if (w && tocLinks.length && !w.querySelector('.toc-progress')) {
+      var p = document.createElement('div');
+      p.className = 'toc-progress';
+      p.innerHTML = '<span></span>';
+      w.appendChild(p);
+    }
+  }
+
+  var completed = false, ticking = false;
+  function update(){
+    ticking = false;
+    var rect = body.getBoundingClientRect();
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var read = (vh * 0.6 - rect.top) / rect.height;          // luettu osuus tekstistä
+    read = Math.min(1, Math.max(0, read));
+    var started = rect.top < vh * 0.4;
+
+    // Jäljellä-merkki
+    var left = Math.ceil(totalMin * (1 - read));
+    if (completed || read >= 0.97) {
+      pill.textContent = '✓ Luettu';
+      pill.classList.add('is-done');
+    } else {
+      pill.textContent = '⏱ ' + left + ' min jäljellä';
+      pill.classList.remove('is-done');
+    }
+    pill.classList.toggle('is-on', started);
+
+    // Sisällysluettelo
+    var line = 110, activeIdx = -1;
+    for (var i = 0; i < heads.length; i++) {
+      if (heads[i] && heads[i].getBoundingClientRect().top < line) activeIdx = i;
+    }
+    for (var j = 0; j < tocLinks.length; j++) {
+      tocLinks[j].classList.toggle('is-active', j === activeIdx);
+      tocLinks[j].classList.toggle('is-done', j < activeIdx || (completed && j <= activeIdx));
+    }
+    var tp = document.querySelector('.toc-progress > span');
+    if (tp) tp.style.width = Math.round(read * 100) + '%';
+
+    // Valmis: lukija on päässyt tekstin loppuun
+    if (!completed && rect.bottom < vh * 0.95 && read > 0.9) {
+      completed = true;
+      document.dispatchEvent(new CustomEvent('sp:complete'));
+      update();
+    }
+  }
+  function onScroll(){ if (!ticking) { ticking = true; setTimeout(update, 60); } }
+
+  function start(){
+    collectToc();
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+  }
+  // Odota, että readpath.js on kuuntelemassa ja TOC on rakennettu
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(start, 0); });
+  else setTimeout(start, 0);
+  window.addEventListener('load', function(){ collectToc(); onScroll(); });
+})();

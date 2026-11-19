@@ -463,3 +463,181 @@ img{max-width:100%;height:auto;display:block}
   .rp-continue-head{ flex-direction:column; align-items:flex-start; gap:.25rem; }
   .rp-next-step{ display:block; margin-left:0; margin-top:.15rem; }
 }
+
+/* ==========================================================================
+   SUORAPUHE v2 – lukukokemus (2026-11)
+   Kaikki alla oleva ylikirjoittaa aiemmat säännöt. Poista tämä lohko,
+   jos haluat palata vanhaan ulkoasuun.
+   ========================================================================== */
+:root{
+  --ui: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif: Charter,"Iowan Old Style","Source Serif Pro",Georgia,serif;
+  --ink:#1b1b1b; --ink-soft:#4a4a48; --paper:#fbfaf7;
+  --gold:#c79a3a; --gold-ink:#8a6212; --gold-soft:#f6efdf;
+  --line:#ebe8e1; --ok:#2e7d32; --ok-soft:#e8f3e9;
+  --radius:12px; --content-w:700px;
+}
+html{-webkit-text-size-adjust:100%}
+body{color:var(--ink);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+::selection{background:#f1dfb0;color:#111}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+
+/* NAV + jäljellä oleva lukuaika */
+.site-nav{box-shadow:0 1px 0 rgba(255,255,255,.04),0 2px 10px rgba(0,0,0,.25)}
+.nav-links a{font-family:var(--ui);letter-spacing:.06em}
+.sp-remaining{font-family:var(--ui);font-size:.72rem;font-weight:700;color:#111;background:var(--gold);
+  border-radius:999px;padding:.28rem .7rem;white-space:nowrap;margin-left:.5rem;flex-shrink:0;
+  opacity:0;transform:translateY(-4px);transition:opacity .25s,transform .25s,background .25s}
+.sp-remaining.is-on{opacity:1;transform:none}
+.sp-remaining.is-done{background:#7fc485}
+.site-nav-inner .nav-links{order:1}.site-nav-inner .sp-remaining{order:2}.site-nav-inner .menu-toggle{order:3}
+@media(max-width:860px){.sp-remaining{margin-left:auto;margin-right:.4rem}.menu-toggle{margin-left:0}}
+
+/* ARTIKKELIN YLÄOSA */
+.page-layout{gap:3.5rem;padding-top:2rem}
+.breadcrumb{font-family:var(--ui)}
+.article-cat{font-family:var(--ui);border-radius:999px;padding:4px 12px;letter-spacing:.08em}
+.article-title{font-family:var(--ui);font-weight:800;font-size:2.5rem;line-height:1.12;letter-spacing:-.02em;color:#111;margin-bottom:.9rem}
+.article-meta{font-family:var(--ui);font-size:.85rem;gap:1rem}
+.reading-badge{background:var(--gold-soft);border-color:#ead9b0;color:var(--gold-ink);font-weight:700}
+.article-img{border-radius:var(--radius);box-shadow:0 10px 30px -12px rgba(0,0,0,.35);margin-bottom:2.2rem}
+
+/* LEIPÄTEKSTI */
+.article-body{font-family:var(--serif);font-size:1.16rem;line-height:1.78;color:#222;max-width:68ch}
+.article-body p{margin-bottom:1.25rem}
+.article-body > .summary-box + p,.article-body > p:first-child{font-size:1.24rem;line-height:1.7;color:#111}
+.article-body h2{font-family:var(--ui);font-weight:800;font-size:1.65rem;letter-spacing:-.015em;line-height:1.22;
+  color:#111;border:0;padding:0;margin:3rem 0 1rem;scroll-margin-top:80px;position:relative}
+.article-body h2::before{content:"";display:block;width:44px;height:4px;border-radius:4px;background:var(--gold);margin-bottom:.8rem}
+.article-body h3{font-family:var(--ui);font-weight:750;font-size:1.22rem;letter-spacing:-.01em;margin:2rem 0 .6rem;color:#111;scroll-margin-top:80px}
+.article-body ul,.article-body ol{margin:1rem 0 1.4rem 1.4rem}
+.article-body li{margin-bottom:.55rem;padding-left:.25rem}
+.article-body ul > li::marker{color:var(--gold)}
+.article-body ol > li::marker{color:var(--gold-ink);font-family:var(--ui);font-weight:800}
+.article-body a{color:#0f5bb5;border-bottom:1.5px solid rgba(15,91,181,.25);transition:border-color .15s,background .15s}
+.article-body a:hover{text-decoration:none;border-bottom-color:#0f5bb5;background:rgba(15,91,181,.05)}
+.article-body strong{color:#111}
+.article-body blockquote{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:#333;background:none;
+  border-left:4px solid var(--gold);padding:.3rem 0 .3rem 1.3rem;margin:2rem 0}
+.article-body .highlight{font-family:var(--ui);font-size:1.08rem;font-weight:650;line-height:1.55;color:#111;
+  background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:1rem 1.2rem;margin:1.6rem 0}
+.article-body p:has(> strong:first-child){border-left:0;padding-left:0;margin-left:0;background:none}
+.article-body .warn-box,.article-body .info-box,.article-body .key-point{font-family:var(--ui);font-size:1rem;line-height:1.6;
+  border-radius:10px;border-left-width:4px;padding:1rem 1.2rem;margin:1.6rem 0}
+.article-body .info-box{background:#eef6ef}
+.article-body .warn-box{background:#fff7e3}
+.article-body .warn-box p:last-child,.article-body .info-box p:last-child{margin-bottom:0}
+.article-body table{font-family:var(--ui);font-size:.92rem;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.article-body th{background:#f4f2ec;font-weight:750}
+.article-body img{border-radius:10px}
+.article-body .book-banner-wide{margin:2.5rem 0;border-bottom:0}
+.article-body .book-banner-wide:hover{background:none}
+@media(max-width:700px){.article-body table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}}
+
+/* LYHYESTI-LAATIKKO */
+.summary-box{background:#fff;border:1px solid var(--line);border-top:4px solid var(--gold);border-left:1px solid var(--line);
+  border-radius:var(--radius);padding:1.2rem 1.4rem 1rem;margin:0 0 2.2rem;box-shadow:0 8px 24px -16px rgba(0,0,0,.25);font-family:var(--ui)}
+.summary-title{color:var(--gold-ink);font-size:.74rem;letter-spacing:.12em;margin-bottom:.7rem}
+.summary-title::before{content:"⚡ "}
+.summary-list li{font-size:.98rem;line-height:1.5;color:#222;padding:.45rem 0 .45rem 1.8rem;border-bottom:1px solid #f1eee7}
+.summary-list li::before{content:"✓";color:#fff;background:var(--gold);width:1.15rem;height:1.15rem;border-radius:50%;
+  font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;top:.62rem}
+.summary-intro{font-style:normal;font-size:1rem;color:#333}
+
+/* SIVUPALKKI + SISÄLLYSLUETTELO */
+.toc-widget{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.1rem 1.1rem .9rem}
+.toc-widget .toc-title{font-family:var(--ui);color:#111;letter-spacing:.1em}
+.toc-list li{border:0;padding:0;font-family:var(--ui)}
+.toc-list a{display:flex;gap:.6rem;align-items:flex-start;padding:.42rem .5rem;border-radius:8px;color:#555;font-size:.86rem;line-height:1.35}
+.toc-list a::before{content:"";flex:0 0 .55rem;height:.55rem;margin-top:.33rem;border-radius:50%;border:2px solid #cfc8b8;background:#fff;transition:all .2s}
+.toc-list a:hover{background:#f6f4ef;color:#111;text-decoration:none}
+.toc-list a.is-done{color:#8a8a86}
+.toc-list a.is-done::before{background:var(--gold);border-color:var(--gold)}
+.toc-list a.is-active{background:var(--gold-soft);color:#111;font-weight:700}
+.toc-list a.is-active::before{border-color:var(--gold-ink);background:#fff;box-shadow:0 0 0 3px rgba(199,154,58,.25)}
+.toc-progress{height:4px;border-radius:4px;background:#efebe2;margin:.7rem .5rem .2rem;overflow:hidden}
+.toc-progress > span{display:block;height:100%;width:0;background:var(--gold);transition:width .2s}
+.widget-title{font-family:var(--ui);color:#111}
+.related-list a{font-size:.88rem}
+
+/* LUIT LOPPUUN -KORTTI (lukupolku) */
+.rp-continue{font-family:var(--ui);border:1px solid var(--line);border-left:1px solid var(--line);border-radius:16px;
+  background:#fff;padding:1.4rem 1.5rem;box-shadow:0 14px 40px -20px rgba(0,0,0,.35);position:relative;overflow:hidden}
+.rp-continue::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,var(--gold),#e8c877)}
+.rp-continue-title{font-size:1.05rem;color:#111}
+.rp-continue-count{color:var(--gold-ink)}
+.rp-bar{height:10px;background:#f0ebdf}
+.rp-next{margin-top:.4rem}
+.rp-next a{display:block;margin-top:.5rem;padding:.9rem 1.1rem;border:0;border-radius:12px;background:#111;color:#fff;
+  font-size:1.02rem;font-weight:750;line-height:1.35;transition:transform .15s,background .15s}
+.rp-next a::after{content:" →";color:var(--gold)}
+.rp-next a:hover{background:#000;transform:translateY(-2px);text-decoration:none;border:0}
+.rp-next-step{display:block;margin:.45rem 0 0;color:#8a8a86}
+.rp-continue.is-complete .rp-continue-title{color:var(--ok)}
+.sp-done-badge{display:none;align-items:center;gap:.6rem;margin-bottom:.9rem;font-weight:800;font-size:1.15rem;color:var(--ok)}
+.rp-continue.is-complete .sp-done-badge{display:flex}
+.sp-done-badge i{font-style:normal;width:2rem;height:2rem;border-radius:50%;background:var(--ok);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.05rem;animation:spPop .45s cubic-bezier(.2,1.6,.4,1)}
+@keyframes spPop{0%{transform:scale(0)}100%{transform:scale(1)}}
+
+/* ILMOITUS (toast) */
+.sp-toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;z-index:2000;font-family:var(--ui);
+  background:#111;color:#fff;border-radius:999px;padding:.7rem 1.2rem;font-size:.9rem;font-weight:650;box-shadow:0 10px 30px rgba(0,0,0,.3);
+  transition:opacity .3s,transform .3s;pointer-events:none;max-width:calc(100% - 32px);text-align:center}
+.sp-toast b{color:var(--gold)}
+.sp-toast.is-on{opacity:1;transform:translate(-50%,0)}
+
+/* ETUSIVU – HERO */
+.site-hero{padding:4.5rem 1.5rem 3.8rem;background:radial-gradient(1200px 400px at 50% -10%,#2a2010 0%,#111 60%)}
+.hero-title{font-family:var(--ui);font-size:3rem;letter-spacing:.04em}
+.hero-sub{font-family:var(--ui);font-size:1.12rem;color:#c9c4b8;max-width:620px}
+.hero-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin:1.6rem 0 .4rem}
+.btn-primary,.btn-ghost{font-family:var(--ui);display:inline-flex;align-items:center;gap:.5rem;font-weight:750;font-size:1rem;
+  padding:.85rem 1.4rem;border-radius:999px;text-decoration:none;transition:transform .15s,background .15s,color .15s}
+.btn-primary{background:var(--gold);color:#111}
+.btn-primary:hover{background:#e0b85a;transform:translateY(-2px);text-decoration:none}
+.btn-ghost{color:#eee;border:1px solid rgba(255,255,255,.25)}
+.btn-ghost:hover{background:rgba(255,255,255,.08);text-decoration:none;color:#fff}
+.hero-progress{font-family:var(--ui);font-size:.85rem;color:#a9a397;margin-top:.6rem;min-height:1.2em}
+.hero-progress b{color:var(--gold)}
+.hero-cats{margin-top:1.6rem}
+
+/* KORTIT */
+.home-section-title{font-family:var(--ui);border:0;font-size:1.35rem;text-transform:none;letter-spacing:-.01em;font-weight:800;margin-top:2.6rem}
+.cards-grid{gap:1.6rem}
+.card{border-radius:var(--radius);border-color:var(--line);position:relative}
+.card:hover{box-shadow:0 14px 34px -18px rgba(0,0,0,.35)}
+.card-title{font-family:var(--ui);font-size:1.02rem;line-height:1.35;font-weight:750}
+.card-body{font-family:var(--ui)}
+.card-read{position:absolute;top:.7rem;left:.7rem;z-index:2;font-family:var(--ui);font-size:.72rem;font-weight:800;
+  color:#fff;background:rgba(46,125,50,.92);border-radius:999px;padding:.25rem .6rem}
+.card.is-read .card-img img{filter:saturate(.6) brightness(.95)}
+
+/* LUKUPOLKU (etusivu/kategoriat) */
+.read-order-section .section-header h2{font-family:var(--ui);font-weight:800;letter-spacing:-.01em}
+.read-order-section .section-header p{font-family:var(--ui);max-width:640px;margin:0 auto;color:#555;line-height:1.6}
+.read-order-section .grid-card{background:#fff!important;border:1px solid var(--line)!important;border-radius:16px!important;
+  padding:1.5rem!important;box-shadow:0 10px 30px -22px rgba(0,0,0,.4)}
+.read-order-section .grid-card h3{font-family:var(--ui)!important;border-bottom:0!important;padding-bottom:0!important;margin-bottom:.6rem!important}
+.read-order-section .step-label{color:var(--gold-ink)!important;font-family:var(--ui)}
+.read-order-section .grid-card li{font-family:var(--ui)}
+.read-order-section li.rp-done > a{color:#8a8a86!important;text-decoration:line-through;text-decoration-color:rgba(0,0,0,.2)}
+.rp-step-bar{display:flex;align-items:center;gap:.6rem;margin:0 0 1rem;font-family:var(--ui);font-size:.78rem;font-weight:700;color:var(--gold-ink)}
+.rp-step-bar > div{flex:1;height:6px;border-radius:6px;background:#f0ebdf;overflow:hidden}
+.rp-step-bar > div > span{display:block;height:100%;background:var(--gold)}
+
+/* KATEGORIAOTSIKKO */
+.cat-header h1{font-family:var(--ui);font-weight:800;font-size:2.3rem;letter-spacing:-.02em}
+.cat-desc{font-size:1.05rem;line-height:1.65;max-width:760px;color:#555}
+
+/* MOBIILI */
+@media(max-width:900px){.article-title{font-size:2rem}.page-layout{gap:2rem}}
+@media(max-width:520px){
+  .article-title{font-size:1.65rem}
+  .article-body{font-size:1.08rem;line-height:1.72}
+  .article-body > .summary-box + p,.article-body > p:first-child{font-size:1.12rem}
+  .article-body h2{font-size:1.38rem;margin-top:2.4rem}
+  .hero-title{font-size:2rem}.hero-sub{font-size:1rem}
+  .btn-primary,.btn-ghost{width:100%;justify-content:center}
+  .summary-box{padding:1rem 1.1rem .8rem}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}

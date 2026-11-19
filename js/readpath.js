@@ -123,12 +123,82 @@
   READ_PATH.forEach(function (x) { PATH_SET[x.s] = x; });
 
   /* ---- 1) Merkitse nykyinen artikkeli luetuksi -------------------------- */
-  function markCurrentIfArticle() {
-    // Vain varsinaiset artikkelit (on .article-body), ei kategoria-indeksit
+  // v2: artikkeli merkitään luetuksi vasta, kun lukija pääsee loppuun asti
+  // (engage.js lähettää 'sp:complete'-tapahtuman). Näin ✅ on ansaittu.
+  function completeCurrent() {
     if (!document.querySelector('.article-body')) return;
     var slug = normalize(location.pathname);
-    if (PATH_SET[slug]) markRead(slug);
-    else if (slug) markRead(slug); // merkitään myös polun ulkopuoliset artikkelit
+    if (!slug) return;
+    var wasRead = isRead(slug);
+    markRead(slug);
+    renderContinueBox(true);
+    var read = getRead();
+    var readCount = READ_PATH.reduce(function (n, x) { return n + (read[x.s] ? 1 : 0); }, 0);
+    if (!wasRead) toast(PATH_SET[slug]
+      ? '✓ Luettu! Lukupolulla <b>' + readCount + '/' + READ_PATH.length + '</b>'
+      : '✓ Artikkeli luettu loppuun');
+  }
+
+  function toast(html) {
+    var t = document.createElement('div');
+    t.className = 'sp-toast';
+    t.setAttribute('role', 'status');
+    t.innerHTML = html;
+    document.body.appendChild(t);
+    requestAnimationFrame(function () { t.classList.add('is-on'); });
+    setTimeout(function () { t.classList.remove('is-on'); }, 3200);
+    setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 3800);
+  }
+
+  function firstUnread() {
+    var read = getRead();
+    for (var i = 0; i < READ_PATH.length; i++) if (!read[READ_PATH[i].s]) return READ_PATH[i];
+    return null;
+  }
+
+  /* ---- 1b) Luettu-merkit artikkelikortteihin --------------------------- */
+  function decorateCards() {
+    document.querySelectorAll('.card').forEach(function (card) {
+      var a = card.querySelector('.card-title a[href], a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href');
+      // kategoriasivuilla linkit ovat suhteellisia ilman kategoriaa
+      var slug = normalize(href);
+      if (slug.indexOf('/') < 0) {
+        var cat = normalize(location.pathname).split('/')[0];
+        slug = cat + '/' + slug;
+      }
+      if (isRead(slug) && !card.querySelector('.card-read')) {
+        card.classList.add('is-read');
+        var b = document.createElement('span');
+        b.className = 'card-read';
+        b.textContent = '✓ Luettu';
+        card.appendChild(b);
+      }
+    });
+  }
+
+  /* ---- 1c) Etusivun "Aloita / Jatka" -painike --------------------------- */
+  function decorateHero() {
+    var cta = document.getElementById('sp-hero-cta');
+    if (!cta) return;
+    var read = getRead();
+    var readCount = READ_PATH.reduce(function (n, x) { return n + (read[x.s] ? 1 : 0); }, 0);
+    var next = firstUnread();
+    var prog = document.getElementById('sp-hero-progress');
+    if (!next) {
+      cta.textContent = '🎉 Lukupolku suoritettu';
+      cta.setAttribute('href', '#lukupolku');
+      return;
+    }
+    cta.setAttribute('href', next.s + '.html');
+    if (readCount > 0) {
+      cta.textContent = 'Jatka: ' + next.t + ' →';
+      if (prog) prog.innerHTML = 'Olet lukenut <b>' + readCount + '/' + READ_PATH.length + '</b> lukupolun artikkelia';
+    } else {
+      cta.textContent = 'Aloita lukupolku →';
+      if (prog) prog.innerHTML = READ_PATH.length + ' artikkelia · 3 vaihetta · mieli, keho, raha';
+    }
   }
 
   /* ---- 2) ✅-merkit "Lue tässä järjestyksessä" -listoihin ---------------- */
@@ -164,6 +234,21 @@
       }
       badge.textContent = ' ' + done + '/' + total + ' luettu';
     }
+    // Vaihekohtainen edistymispalkki jokaiseen vaihekorttiin
+    sec.querySelectorAll('.grid-card').forEach(function (card) {
+      var all = card.querySelectorAll('ol li a[href]').length;
+      if (!all) return;
+      var d = card.querySelectorAll('ol li.rp-done').length;
+      var bar = card.querySelector('.rp-step-bar');
+      if (!bar) {
+        bar = document.createElement('div');
+        bar.className = 'rp-step-bar';
+        var h3 = card.querySelector('h3');
+        if (h3 && h3.nextSibling) h3.parentNode.insertBefore(bar, h3.nextSibling);
+        else card.insertBefore(bar, card.firstChild);
+      }
+      bar.innerHTML = '<div><span style="width:' + Math.round(d / all * 100) + '%"></span></div>' + d + '/' + all;
+    });
   }
 
   /* ---- 3) "Jatka lukupolkua" -laatikko artikkeleihin -------------------- */
@@ -175,9 +260,11 @@
     return depth > 0 ? Array(depth + 1).join('../') : './';
   }
 
-  function renderContinueBox() {
+  function renderContinueBox(complete) {
     var body = document.querySelector('.article-body');
     if (!body) return;
+    var old = document.querySelector('.rp-continue');
+    if (old && old.parentNode) old.parentNode.removeChild(old);
     var curSlug = normalize(location.pathname);
     // Löydä nykyisen artikkelin indeksi polusta
     var idx = -1;
@@ -204,11 +291,12 @@
     }
 
     var box = document.createElement('div');
-    box.className = 'rp-continue';
+    box.className = 'rp-continue' + (complete ? ' is-complete' : '');
 
     var stepNames = { 1: 'Vaihe 1 · Mieli & Asenne', 2: 'Vaihe 2 · Terveys & Suorituskyky', 3: 'Vaihe 3 · Talous, Bisnes & Krypto' };
 
     var html = '';
+    html += '<div class="sp-done-badge"><i>✓</i> Luit tämän loppuun asti</div>';
     html += '<div class="rp-continue-head">';
     html += '<span class="rp-continue-title">📚 Lukupolkusi</span>';
     html += '<span class="rp-continue-count">' + readCount + '/' + total + ' luettu</span>';
@@ -217,7 +305,7 @@
 
     if (next) {
       html += '<div class="rp-next">';
-      html += '<span class="rp-next-label">Seuraavaksi' + (idx >= 0 ? '' : ' suositellussa polussa') + ':</span> ';
+      html += '<span class="rp-next-label">' + (complete ? 'Seuraava askel' : 'Seuraavaksi') + (idx >= 0 ? '' : ' suositellussa polussa') + ':</span> ';
       html += '<a href="' + prefix + next.s + '.html">' + next.t + '</a>';
       html += ' <span class="rp-next-step">' + (stepNames[next.step] || '') + '</span>';
       html += '</div>';
@@ -236,9 +324,12 @@
 
   /* ---- Käynnistys -------------------------------------------------------- */
   function init() {
-    markCurrentIfArticle();   // 1: merkitse luetuksi
-    decorateReadOrder();      // 2: ✅ listoihin (etusivu/kategoriat)
-    renderContinueBox();      // 3: laatikko artikkeleihin
+    decorateReadOrder();      // ✅ listoihin + vaihepalkit (etusivu/kategoriat)
+    decorateCards();          // "✓ Luettu" artikkelikortteihin
+    decorateHero();           // etusivun Aloita/Jatka-painike
+    var slug = normalize(location.pathname);
+    renderContinueBox(!!(document.querySelector('.article-body') && isRead(slug)));
+    document.addEventListener('sp:complete', completeCurrent);
   }
 
   if (document.readyState === 'loading') {
